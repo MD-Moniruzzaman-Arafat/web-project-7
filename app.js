@@ -1,5 +1,6 @@
 const triangleCalculate = document.getElementById('triangle');
 const rectangleCalculate = document.getElementById('rectangle');
+const parallelogramCalculate = document.getElementById('parallelogram');
 
 triangleCalculate.addEventListener('click', function () {
   // console.log('Triangle button clicked');
@@ -50,4 +51,29 @@ rectangleCalculate.addEventListener('click', function () {
   // clear input fields
   document.getElementById('rectangle-l').value = '';
   document.getElementById('rectangle-w').value = '';
+})
+
+parallelogramCalculate.addEventListener('click', function () {
+  // console.log('Parallelogram button clicked');
+  const b = document.getElementById('parallelogram-b').value;
+  const h = document.getElementById('parallelogram-h').value;
+  const area = b * h;
+  // console.log('Parallelogram Area:', area);
+
+  const li = document.createElement("li");
+  li.innerHTML = `
+  <div class="text-[13px] flex justify-between items-center p-1">
+    <span>parallelogram</span>
+    <span>${area}cm<sup>2</sup></span>
+    <button class="btn btn-xs btn-primary">Convert to m<sup>2</sup></button>
+  </div>
+`;
+
+  if (b > 0 || h > 0) {
+    document.getElementById('aria-list').appendChild(li)
+  }
+
+  // clear input fields
+  document.getElementById('parallelogram-b').value = '';
+  document.getElementById('parallelogram-h').value = '';
 })
